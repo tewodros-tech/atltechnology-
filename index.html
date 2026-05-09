@@ -17,29 +17,29 @@
 
     body {
       font-family: 'Inter', 'Space Grotesk', sans-serif;
-      background: #0A0C10;
+      background: #0A0F1A;
       color: #EFF3F8;
       overflow-x: hidden;
     }
 
-    /* animated robotics / matrix numbers background */
-    .robotic-bg {
+    /* animated matrix background with "ATL" words */
+    .matrix-bg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: -2;
-      background: radial-gradient(circle at 20% 30%, #0B1120, #03060C);
+      background: radial-gradient(circle at 30% 20%, #0D1422, #03060C);
     }
-    #digitsCanvas {
+    #atlCanvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: -1;
-      opacity: 0.35;
+      opacity: 0.4;
       pointer-events: none;
     }
 
@@ -52,15 +52,15 @@
       z-index: 2;
     }
 
-    /* glass navigation */
+    /* glass navigation - new refined colors */
     .nav {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(8, 12, 20, 0.85);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      background: rgba(5, 10, 20, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 230, 200, 0.25);
     }
     .nav-inner {
       display: flex;
@@ -71,12 +71,12 @@
     .logo {
       font-size: 1.7rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #FFFFFF, #2AD4FF);
+      background: linear-gradient(135deg, #FFFFFF, #00E6C3);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-    .logo span { font-weight: 500; font-size: 0.9rem; color: #2AD4FF; background: none; -webkit-background-clip: unset; }
+    .logo span { font-weight: 500; font-size: 0.9rem; background: none; -webkit-background-clip: unset; color: #00E6C3; }
     .links {
       display: flex;
       gap: 32px;
@@ -87,12 +87,12 @@
       font-weight: 500;
       transition: 0.2s;
     }
-    .links a:hover { color: #2AD4FF; }
+    .links a:hover { color: #00E6C3; }
     .menu-toggle {
       display: none;
       font-size: 1.6rem;
       cursor: pointer;
-      color: #2AD4FF;
+      color: #00E6C3;
     }
 
     /* hero */
@@ -107,20 +107,20 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(42, 212, 255, 0.12);
+      background: rgba(0, 230, 195, 0.12);
       border-radius: 60px;
       padding: 8px 20px;
       font-size: 0.85rem;
       font-weight: 600;
       backdrop-filter: blur(4px);
       margin-bottom: 28px;
-      border: 1px solid rgba(42,212,255,0.4);
+      border: 1px solid rgba(0,230,195,0.4);
     }
     .hero-title {
       font-size: 3.8rem;
       font-weight: 800;
       line-height: 1.2;
-      background: linear-gradient(125deg, #FFFFFF, #7AE6FF);
+      background: linear-gradient(125deg, #FFFFFF, #7EFFEC);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -143,29 +143,29 @@
       transition: 0.25s;
     }
     .btn-primary {
-      background: #2AD4FF;
+      background: #00E6C3;
       color: #0A0C10;
-      box-shadow: 0 8px 18px rgba(42,212,255,0.3);
+      box-shadow: 0 8px 18px rgba(0,230,195,0.35);
     }
-    .btn-primary:hover { background: #00e0ff; transform: translateY(-2px); }
+    .btn-primary:hover { background: #00ffda; transform: translateY(-2px); }
     .btn-outline {
-      border: 1.5px solid #2AD4FF;
-      color: #2AD4FF;
+      border: 1.5px solid #00E6C3;
+      color: #00E6C3;
       background: transparent;
     }
-    .btn-outline:hover { background: rgba(42,212,255,0.1); transform: translateY(-2px); }
+    .btn-outline:hover { background: rgba(0,230,195,0.1); transform: translateY(-2px); }
 
     /* sections */
     section { padding: 90px 0; }
     .section-tag {
       display: inline-block;
-      background: rgba(42,212,255,0.15);
+      background: rgba(0, 230, 195, 0.15);
       padding: 6px 18px;
       border-radius: 40px;
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 1px;
-      color: #2AD4FF;
+      color: #00E6C3;
       margin-bottom: 20px;
     }
     .section-title {
@@ -178,25 +178,23 @@
       max-width: 680px;
     }
 
-    /* services grid etc */
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 32px; margin-top: 40px; }
     .service-card {
-      background: rgba(16, 22, 35, 0.65);
+      background: rgba(12, 20, 32, 0.7);
       backdrop-filter: blur(8px);
       border-radius: 32px;
       padding: 32px;
-      border: 1px solid rgba(42,212,255,0.2);
+      border: 1px solid rgba(0,230,195,0.2);
       transition: 0.3s;
     }
-    .service-card:hover { border-color: #2AD4FF; transform: translateY(-6px); background: rgba(20,28,44,0.8); }
-    .service-icon { font-size: 2.5rem; color: #2AD4FF; margin-bottom: 24px; }
+    .service-card:hover { border-color: #00E6C3; transform: translateY(-6px); background: rgba(18, 28, 44, 0.85); }
+    .service-icon { font-size: 2.5rem; color: #00E6C3; margin-bottom: 24px; }
 
-    /* free gap assessment special */
     .gap-card {
-      background: linear-gradient(125deg, #0E1824, #08101C);
+      background: linear-gradient(125deg, #0E1825, #07101C);
       border-radius: 48px;
       padding: 56px 48px;
-      border: 1px solid #2AD4FF30;
+      border: 1px solid #00E6C340;
       margin: 40px 0;
     }
     .pill-list {
@@ -206,13 +204,12 @@
       margin: 28px 0;
     }
     .pill {
-      background: rgba(42,212,255,0.1);
+      background: rgba(0,230,195,0.1);
       padding: 8px 20px;
       border-radius: 40px;
       font-weight: 500;
     }
 
-    /* pre-audit shield */
     .shield-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
@@ -220,30 +217,27 @@
       margin-top: 40px;
     }
     .shield-card {
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.45);
       backdrop-filter: blur(4px);
       border-radius: 28px;
       padding: 32px;
-      border-left: 4px solid #2AD4FF;
+      border-left: 4px solid #00E6C3;
     }
 
-    /* stats section */
     .stats-grid {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 32px;
-      background: rgba(42,212,255,0.05);
+      background: rgba(0,230,195,0.05);
       border-radius: 48px;
       padding: 48px 40px;
     }
-    .stat-item h3 { font-size: 2.4rem; font-weight: 800; color: #2AD4FF; }
+    .stat-item h3 { font-size: 2.4rem; font-weight: 800; color: #00E6C3; }
 
-    /* why partner */
     .partner-feature { display: flex; gap: 16px; margin-bottom: 28px; align-items: flex-start; }
-    .partner-feature i { font-size: 2rem; color: #2AD4FF; }
+    .partner-feature i { font-size: 2rem; color: #00E6C3; }
 
-    /* three steps */
     .steps {
       display: flex;
       flex-wrap: wrap;
@@ -253,7 +247,7 @@
     }
     .step {
       flex: 1;
-      background: #0F1822;
+      background: #0F1825;
       border-radius: 32px;
       padding: 32px;
       text-align: center;
@@ -261,7 +255,7 @@
     .step-number {
       width: 48px;
       height: 48px;
-      background: #2AD4FF;
+      background: #00E6C3;
       color: #0A0C10;
       border-radius: 60px;
       display: flex;
@@ -272,7 +266,7 @@
     }
 
     footer {
-      background: #04080F;
+      background: #03070F;
       padding: 60px 0 30px;
       margin-top: 60px;
     }
@@ -282,13 +276,14 @@
       gap: 40px;
     }
     .footer-grid a, .footer-contact p { color: #9aaebf; text-decoration: none; display: block; margin-bottom: 12px; }
-    .social-icons a { font-size: 1.4rem; margin-right: 20px; color: #9aaebf; }
+    .social-icons a { font-size: 1.4rem; margin-right: 20px; color: #9aaebf; transition: 0.2s; }
+    .social-icons a:hover { color: #00E6C3; }
     .copyright { text-align: center; margin-top: 40px; padding-top: 24px; border-top: 1px solid #1c2a3a; }
     .back-to-top {
       position: fixed;
       bottom: 28px;
       right: 28px;
-      background: #2AD4FF;
+      background: #00E6C3;
       border: none;
       width: 48px;
       height: 48px;
@@ -313,8 +308,8 @@
   </style>
 </head>
 <body>
-<div class="robotic-bg"></div>
-<canvas id="digitsCanvas"></canvas>
+<div class="matrix-bg"></div>
+<canvas id="atlCanvas"></canvas>
 
 <nav class="nav">
   <div class="container nav-inner">
@@ -348,9 +343,9 @@
     <div class="section-tag">Ethiopian-Rooted • Globally-Standard</div>
     <div class="grid-2">
       <div class="fade-up"><h2 class="section-title" style="font-size:2rem;">Who We Are</h2><p style="line-height:1.6">ATL Technology Ethiopia delivers end-to-end IT solutions for financial institutions, with specialized focus on SACCO digitalization, NBE/INSA compliance, and cyber-resilience. Local expertise backed by international frameworks.</p>
-      <div style="margin-top: 28px;"><i class="fas fa-check-circle" style="color:#2AD4FF;"></i> <strong>Our Mission:</strong> Empower Ethiopian SACCOs with secure, compliant, and scalable IT infrastructure that enables growth and member trust.<br>
-      <i class="fas fa-eye" style="color:#2AD4FF; margin-top: 14px;"></i> <strong>Our Vision:</strong> Ethiopia's most trusted financial technology partner by 2030.</div></div>
-      <div class="fade-up"><div class="service-card" style="background:#0E1824;"><i class="fas fa-landmark"></i><h3 style="margin:16px 0">Financial Sector DNA</h3><p>Commercial Banks • Microfinance • SACCOs • Insurance • Payment & Fintech</p><hr style="margin:20px 0; border-color:#2AD4FF30;"><i class="fas fa-shield-heart"></i><h3 style="margin:16px 0">Security-First Philosophy</h3><p>NBE/INSA Alignment • IPSec & VPN Architecture • Penetration Testing • Incident Response</p></div></div>
+      <div style="margin-top: 28px;"><i class="fas fa-check-circle" style="color:#00E6C3;"></i> <strong>Our Mission:</strong> Empower Ethiopian SACCOs with secure, compliant, and scalable IT infrastructure that enables growth and member trust.<br>
+      <i class="fas fa-eye" style="color:#00E6C3; margin-top: 14px;"></i> <strong>Our Vision:</strong> Ethiopia's most trusted financial technology partner by 2030.</div></div>
+      <div class="fade-up"><div class="service-card" style="background:#0E1824;"><i class="fas fa-landmark"></i><h3 style="margin:16px 0">Financial Sector DNA</h3><p>Commercial Banks • Microfinance • SACCOs • Insurance • Payment & Fintech</p><hr style="margin:20px 0; border-color:#00E6C330;"><i class="fas fa-shield-heart"></i><h3 style="margin:16px 0">Security-First Philosophy</h3><p>NBE/INSA Alignment • IPSec & VPN Architecture • Penetration Testing • Incident Response</p></div></div>
     </div>
   </div>
 </section>
@@ -372,7 +367,7 @@
 <!-- FREE GAP ASSESSMENT -->
 <div class="container">
   <div class="gap-card fade-up">
-    <div style="display:flex; justify-content:space-between; flex-wrap:wrap; align-items:center;"><h2 style="font-size:1.9rem;"><i class="fas fa-chart-line"></i> Free GAP Assessment — Your Starting Point</h2><span class="pill" style="background:#2AD4FF20;">No cost • No commitment</span></div>
+    <div style="display:flex; justify-content:space-between; flex-wrap:wrap; align-items:center;"><h2 style="font-size:1.9rem;"><i class="fas fa-chart-line"></i> Free GAP Assessment — Your Starting Point</h2><span class="pill" style="background:#00E6C320;">No cost • No commitment</span></div>
     <p style="margin: 20px 0;">We assess the distance between your current reality and the gold standard of SACCO digitalization, then deliver a clear, prioritized roadmap — at no charge.</p>
     <div class="pill-list">
       <span class="pill"><i class="fas fa-microchip"></i> Infrastructure Readiness</span>
@@ -390,20 +385,20 @@
     <h2 class="section-title">Find Gaps Before Auditors Do</h2>
     <p>Don't let your NBE auditor or integration partner find what we can find first. ATL's Pre-Audit Shield is a proactive, structured security review.</p>
     <div class="shield-grid">
-      <div class="shield-card fade-up"><i class="fas fa-bug" style="font-size:2rem; color:#2AD4FF;"></i><h3 style="margin:16px 0">Mock Penetration Testing</h3><p>Internal vulnerability scanning, simulated external attacks, weak password testing, detailed findings report.</p></div>
-      <div class="shield-card fade-up"><i class="fas fa-file-alt" style="font-size:2rem; color:#2AD4FF;"></i><h3 style="margin:16px 0">INSA Readiness Review</h3><p>Documentation audit (policies & logs), access control review, incident response plan development, INSA application readiness.</p></div>
-      <div class="shield-card fade-up"><i class="fas fa-server" style="font-size:2rem; color:#2AD4FF;"></i><h3 style="margin:16px 0">System Hardening</h3><p>Server & endpoint hardening, firewall rule tightening, IPSec/VPN security config, re-test after fixes.</p></div>
+      <div class="shield-card fade-up"><i class="fas fa-bug" style="font-size:2rem; color:#00E6C3;"></i><h3 style="margin:16px 0">Mock Penetration Testing</h3><p>Internal vulnerability scanning, simulated external attacks, weak password testing, detailed findings report.</p></div>
+      <div class="shield-card fade-up"><i class="fas fa-file-alt" style="font-size:2rem; color:#00E6C3;"></i><h3 style="margin:16px 0">INSA Readiness Review</h3><p>Documentation audit (policies & logs), access control review, incident response plan development, INSA application readiness.</p></div>
+      <div class="shield-card fade-up"><i class="fas fa-server" style="font-size:2rem; color:#00E6C3;"></i><h3 style="margin:16px 0">System Hardening</h3><p>Server & endpoint hardening, firewall rule tightening, IPSec/VPN security config, re-test after fixes.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Why partner with ATL + values -->
-<section style="background: rgba(0, 20, 30, 0.3);">
+<!-- Why partner with ATL + values (updated 10 years) -->
+<section style="background: rgba(0, 25, 30, 0.3);">
   <div class="container">
     <div class="section-tag">Why Partner with ATL Technology</div>
     <h2>We Don't Just Deliver Projects — We Build Long-Term Technology Partnerships</h2>
     <div class="stats-grid fade-up" style="margin-top: 40px;">
-      <div class="stat-item"><h3>20+</h3><p>Years combined fintech experience</p></div>
+      <div class="stat-item"><h3>10+</h3><p>Years fintech & infrastructure experience</p></div>
       <div class="stat-item"><h3>100%</h3><p>INSA readiness focus</p></div>
       <div class="stat-item"><h3>24/7</h3><p>Security monitoring & support</p></div>
     </div>
@@ -438,7 +433,7 @@
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div><h3 style="color:#2AD4FF;">ATL Technology Ethiopia</h3><p>Addis Ababa, Ethiopia<br>Your Trusted Partner in SACCO Digitalization & Financial Sector Security</p><div class="social-icons"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-telegram"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div>
+      <div><h3 style="color:#00E6C3;">ATL Technology Ethiopia</h3><p>Addis Ababa, Ethiopia<br>Your Trusted Partner in SACCO Digitalization & Financial Sector Security</p><div class="social-icons"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-telegram"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div>
       <div><h4>Solutions</h4><a href="#">IT Support as a Service</a><a href="#">Branch & Network Setup</a><a href="#">Security & Compliance</a><a href="#">3rd Party Integration</a></div>
       <div class="footer-contact"><h4>Contact</h4><p><i class="fas fa-map-marker-alt"></i> Bole, Addis Ababa, Ethiopia</p><p><i class="fas fa-phone-alt"></i> 0920207346 / 0910437791 / 0932403130</p><p><i class="fas fa-envelope"></i> hello@atltechnology.et</p></div>
     </div>
@@ -448,55 +443,66 @@
 <button id="back-to-top" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
 <script>
-  // animated digital background (robotic small numbers)
-  const canvas = document.getElementById('digitsCanvas');
+  // Animated background with visible "ATL" flowing words (matrix style)
+  const canvas = document.getElementById('atlCanvas');
   let ctx = canvas.getContext('2d');
   let width, height;
-  let fontSize = 14;
+  let fontSize = 22;
   let columns, drops = [];
-  const chars = "01 10 00 11 101 010 110 001 1001 0110 1010 1100 ATL SEC NBE INSA ETH 2 0 3 0";
-  const charArray = chars.split(' ');
-
+  // array of words containing "ATL" and tech-related terms
+  const atlWords = ["ATL", "ATL TECH", "ATL SEC", "ATL", "ATL ETH", "ATL", "ATL SAFE", "ATL", "ATL CLOUD", "ATL", "ATL 24/7", "ATL", "ATL COMPLY", "ATL"];
+  
   function resizeCanvas() {
     width = window.innerWidth;
     height = window.innerHeight;
     canvas.width = width;
     canvas.height = height;
-    columns = Math.floor(width / fontSize);
+    columns = Math.floor(width / (fontSize * 1.2));
     drops = [];
     for (let i = 0; i < columns; i++) drops[i] = Math.random() * -height;
   }
+  
   function draw() {
-    if(!ctx) return;
-    ctx.fillStyle = 'rgba(8, 12, 18, 0.05)';
+    if (!ctx) return;
+    ctx.fillStyle = 'rgba(8, 12, 22, 0.065)';
     ctx.fillRect(0, 0, width, height);
-    ctx.fillStyle = '#2AD4FF';
-    ctx.font = `${fontSize}px 'Fira Code', monospace`;
+    ctx.fillStyle = '#00E6C3';
+    ctx.font = `${fontSize}px 'Fira Code', 'Space Grotesk', monospace`;
+    ctx.shadowBlur = 0;
     for (let i = 0; i < drops.length; i++) {
-      const text = charArray[Math.floor(Math.random() * charArray.length)];
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-      if (drops[i] * fontSize > height && Math.random() > 0.975) drops[i] = 0;
-      drops[i] += 0.6;
+      const word = atlWords[Math.floor(Math.random() * atlWords.length)];
+      const x = i * (fontSize * 1.2);
+      const y = drops[i] * fontSize;
+      ctx.fillText(word, x, y);
+      // make some letters glow
+      if (word === "ATL") {
+        ctx.fillStyle = '#66FFE6';
+        ctx.fillText(word, x, y);
+        ctx.fillStyle = '#00E6C3';
+      }
+      if (y > height && Math.random() > 0.975) drops[i] = 0;
+      drops[i] += 0.55;
     }
     requestAnimationFrame(draw);
   }
+  
   window.addEventListener('resize', () => { resizeCanvas(); });
   resizeCanvas();
   draw();
-
-  // preloader
-  window.addEventListener('load', () => { setTimeout(() => { document.body.classList.add('loaded'); }, 200); });
-
-  // mobile menu
+  
+  // mobile menu toggle
   const menuToggle = document.getElementById('mobile-menu');
   const linksDiv = document.querySelector('.links');
   if(menuToggle) menuToggle.addEventListener('click', () => linksDiv.classList.toggle('active'));
-
-  // back to top
+  
+  // back to top button
   const backTop = document.getElementById('back-to-top');
-  window.addEventListener('scroll', () => { if(window.scrollY > 400) backTop.classList.add('show'); else backTop.classList.remove('show'); });
+  window.addEventListener('scroll', () => { 
+    if(window.scrollY > 400) backTop.classList.add('show'); 
+    else backTop.classList.remove('show'); 
+  });
   backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
+  
   // fade-up observer
   const faders = document.querySelectorAll('.fade-up');
   const observer = new IntersectionObserver((entries) => {
@@ -504,6 +510,9 @@
   }, { threshold: 0.15 });
   faders.forEach(f => observer.observe(f));
   document.querySelectorAll('.service-card, .shield-card, .step, .gap-card').forEach(el => el.classList.add('fade-up'));
+  
+  // remove preloader effect instantly
+  window.addEventListener('load', () => { document.body.style.opacity = 1; });
 </script>
 </body>
 </html>
