@@ -22,7 +22,7 @@
       overflow-x: hidden;
     }
 
-    /* HACKER / CYBER TECH ANIMATED BACKGROUND */
+    /* HACKER / CYBER TECH ANIMATED BACKGROUND - NO TABLE, PURE CANVAS */
     #hackerCanvas {
       position: fixed;
       top: 0;
@@ -310,7 +310,6 @@
     .fade-up { opacity: 0; transform: translateY(30px); transition: 0.7s cubic-bezier(0.2,0.9,0.4,1.1); }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* glitch effect for hacker feel */
     @keyframes glitch {
       0% { text-shadow: -2px 0 #00FFAA, 2px 0 #FF00AA; }
       50% { text-shadow: 2px 0 #00FFAA, -2px 0 #FF00AA; }
@@ -454,57 +453,91 @@
 <button id="back-to-top" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
 <script>
-  // ========== HACKER / CYBER TECH ANIMATED BACKGROUND ==========
+  // ========== HACKER / ATL MATRIX BACKGROUND - NO TABLE, SMOOTH SPEED ==========
   const canvas = document.getElementById('hackerCanvas');
   const ctxC = canvas.getContext('2d');
   let w, h;
-  let matrixChars = "01ATL@#$%&TECH0123456789ABCDEF";
-  let fontSize = 14;
+  
+  // Custom word set with heavy emphasis on "ATL" and tech terms
+  const hackerWords = [
+    "ATL", "ATL", "ATL", "SECURE", "ATL", "NBE", "ATL", "INSA", "ATL", 
+    "SACCO", "ATL", "FINTECH", "ATL", "ENCRYPT", "ATL", "CLOUD", "ATL",
+    "0xATL", "ATL", "AUDIT", "ATL", "COMPLY", "ATL", "VPN", "ATL", "FIREWALL"
+  ];
+  
+  let fontSize = 18;      // Slightly larger for visibility
   let columns, drops = [];
   let glowingParticles = [];
-
+  
   function resizeCanvas() {
     w = window.innerWidth;
     h = window.innerHeight;
     canvas.width = w;
     canvas.height = h;
-    columns = Math.floor(w / fontSize);
+    columns = Math.floor(w / (fontSize * 1.2));
     drops = [];
-    for (let i = 0; i < columns; i++) drops[i] = Math.random() * -h;
-    // init glowing particles
+    for (let i = 0; i < columns; i++) {
+      drops[i] = Math.random() * -h * 0.6;  // start at different positions
+    }
+    // init floating glow particles
     glowingParticles = [];
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 60; i++) {
       glowingParticles.push({
         x: Math.random() * w,
         y: Math.random() * h,
         radius: Math.random() * 2 + 1,
-        alpha: Math.random() * 0.6 + 0.2,
-        speedX: (Math.random() - 0.5) * 0.2,
-        speedY: (Math.random() - 0.5) * 0.2
+        alpha: Math.random() * 0.5 + 0.15,
+        speedX: (Math.random() - 0.5) * 0.15,
+        speedY: (Math.random() - 0.5) * 0.1
       });
     }
   }
 
   function drawMatrix() {
-    ctxC.fillStyle = 'rgba(8, 12, 20, 0.07)';
+    if (!ctxC) return;
+    // subtle fade trail (not too heavy)
+    ctxC.fillStyle = 'rgba(6, 10, 18, 0.06)';
     ctxC.fillRect(0, 0, w, h);
-    // falling characters (classic hacker effect)
-    ctxC.font = `${fontSize}px 'Fira Code', monospace`;
+    
+    ctxC.font = `500 ${fontSize}px 'Fira Code', monospace`;
+    
     for (let i = 0; i < drops.length; i++) {
-      const char = matrixChars[Math.floor(Math.random() * matrixChars.length)];
-      const x = i * fontSize;
+      const word = hackerWords[Math.floor(Math.random() * hackerWords.length)];
+      const x = i * (fontSize * 1.15);
       const y = drops[i] * fontSize;
-      const brightness = Math.random() > 0.7 ? '#00FFAA' : '#33FFCC';
-      ctxC.fillStyle = brightness;
-      ctxC.fillText(char, x, y);
-      if (y > h && Math.random() > 0.975) drops[i] = 0;
-      drops[i] += 0.5;
+      
+      // Make "ATL" words brighter and more visible
+      let color;
+      let shadow = false;
+      if (word === "ATL") {
+        color = '#00FFCC';
+        ctxC.shadowBlur = 8;
+        ctxC.shadowColor = '#00FFAA';
+        shadow = true;
+      } else {
+        color = '#88FFCC';
+        ctxC.shadowBlur = 2;
+        ctxC.shadowColor = '#00AA88';
+      }
+      ctxC.fillStyle = color;
+      ctxC.fillText(word, x, y);
+      
+      if (shadow) ctxC.shadowBlur = 0;
+      
+      // reset drop when reaches bottom or random reset (smooth continuous flow)
+      if (y > h && Math.random() > 0.98) drops[i] = 0;
+      // slower fall speed for better readability
+      drops[i] += 0.36;
     }
-    // glowing circuit-like particles
+    
+    // Reset shadow
+    ctxC.shadowBlur = 0;
+    
+    // glowing particles (like data nodes)
     for (let p of glowingParticles) {
       ctxC.beginPath();
       ctxC.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctxC.fillStyle = `rgba(0, 255, 170, ${p.alpha})`;
+      ctxC.fillStyle = `rgba(0, 255, 180, ${p.alpha})`;
       ctxC.fill();
       p.x += p.speedX;
       p.y += p.speedY;
@@ -513,15 +546,23 @@
       if (p.y < 0) p.y = h;
       if (p.y > h) p.y = 0;
     }
-    // draw scanning lines / glitch effect
+    
+    // subtle grid lines for hacker feel (no table, just lines)
     ctxC.beginPath();
-    ctxC.strokeStyle = 'rgba(0, 255, 170, 0.12)';
+    ctxC.strokeStyle = 'rgba(0, 255, 170, 0.08)';
     ctxC.lineWidth = 0.5;
-    for (let i = 0; i < w; i += 35) {
+    const time = Date.now() * 0.001;
+    for (let i = 0; i < w; i += 55) {
       ctxC.moveTo(i, 0);
-      ctxC.lineTo(i + Math.sin(Date.now() * 0.002) * 6, h);
+      ctxC.lineTo(i + Math.sin(time) * 4, h);
       ctxC.stroke();
     }
+    for (let i = 0; i < h; i += 45) {
+      ctxC.moveTo(0, i);
+      ctxC.lineTo(w, i + Math.cos(time * 0.8) * 3);
+      ctxC.stroke();
+    }
+    
     requestAnimationFrame(drawMatrix);
   }
 
@@ -550,7 +591,6 @@
   faders.forEach(f => observer.observe(f));
   document.querySelectorAll('.service-card, .shield-card, .step, .gap-card').forEach(el => el.classList.add('fade-up'));
   
-  // tiny glitch on hero title
   const heroTitle = document.querySelector('.hero-title');
   if(heroTitle) heroTitle.classList.add('glitch-text');
 </script>
